@@ -34,11 +34,19 @@ class App extends Component {
     console.log(this.state);
   }
   render() {
+    const style = {
+      backgroundColor: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer'
+    }
     return (
       <div className="App">
         <h1>Welcome to Aditya Verma's first React App</h1>
-        <button onClick={() => this.switchNameHandler('Adi')}>Switch Name</button>
-        <button onClick={this.displayState}>View state in console</button>
+        <button onClick={() => this.switchNameHandler('Adi')}
+          style= {style}>Switch Name</button>
+        {/* <button onClick={this.displayState}>View state in console</button> */}
         <Person name={this.state.persons[0].name} age={this.state.persons[0].age} />
         <Person name={this.state.persons[1].name} 
         age={this.state.persons[1].age} 
