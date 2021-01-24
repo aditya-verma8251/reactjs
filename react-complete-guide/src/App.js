@@ -21,6 +21,15 @@ class App extends Component {
       ]
     })
   }
+  nameChangeHandler = (event) => { //Event object is passed automatically by react
+    this.setState({
+      persons: [
+        { name: 'Max', age: 28 },
+        { name: event.target.value, age: 29 },
+        { name: 'Staphanie', age: 27 }
+      ]
+    })
+  }
   displayState = () => {
     console.log(this.state);
   }
@@ -31,7 +40,10 @@ class App extends Component {
         <button onClick={() => this.switchNameHandler('Adi')}>Switch Name</button>
         <button onClick={this.displayState}>View state in console</button>
         <Person name={this.state.persons[0].name} age={this.state.persons[0].age} />
-        <Person name={this.state.persons[1].name} age={this.state.persons[1].age} click = {this.switchNameHandler.bind(this, 'Michael')}>My Hobbies: Racing</Person>
+        <Person name={this.state.persons[1].name} 
+        age={this.state.persons[1].age} 
+        click = {this.switchNameHandler.bind(this, 'Michael')}
+        changed = {this.nameChangeHandler}>My Hobbies: Racing</Person>
         <Person name={this.state.persons[2].name} age={this.state.persons[2].age} />
       </div>
       // <h1>Another heading</h1> -> This is not allowed since JSX should have one root element
